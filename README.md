@@ -6,6 +6,7 @@ PHP Class for Multiple Requests
 Sample usage
 ```PHP
 <?
+include 'MultiCurl.php';
 
 $localhost = 'http://several-work.test/MultiCurl/';
 $urls = array(
