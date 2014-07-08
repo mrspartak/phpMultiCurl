@@ -130,13 +130,20 @@ class Request
 		if(is_string($mixed)) {
 			$this->setUrl($mixed);
 		} else {
-			$this->setUrl($mixed['url']);
-			$this->setMethod($mixed['method']);
-			$this->setReturnHeader($mixed['returnHeader']);
-			$this->setReturnTransfer($mixed['returnTransfer']);
-			$this->setEncoding($mixed['encoding']);
-			$this->setPostParams($mixed['postParams']);
-			$this->setCookie($mixed['cookie']);
+			if(isset($mixed['url']))
+				$this->setUrl($mixed['url']);
+			if(isset($mixed['method']))
+				$this->setMethod($mixed['method']);
+			if(isset($mixed['returnHeader']))
+				$this->setReturnHeader($mixed['returnHeader']);
+			if(isset($mixed['returnTransfer']))
+				$this->setReturnTransfer($mixed['returnTransfer']);
+			if(isset($mixed['encoding']))
+				$this->setEncoding($mixed['encoding']);
+			if(isset($mixed['postParams']))
+				$this->setPostParams($mixed['postParams']);
+			if(isset($mixed['cookie']))
+				$this->setCookie($mixed['cookie']);
 		}
 	}
 
