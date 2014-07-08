@@ -9,12 +9,17 @@ Sample usage
 
 $localhost = 'http://several-work.test/MultiCurl/';
 $urls = array(
-	$localhost . 'tmp2.php?time=200000',
-	array(
-		'url' => $localhost . 'tmp.php?time=200000',
+	//404 error
+	$localhost . 'tmp2.php?time=200000', 
+	
+	//get with cookie
+	array(								
+		'url' => $localhost . 'tmp.php?time=200000', 
 		'cookie' => 'foo=bar2;',
 	),
-	array(
+	
+	//post with post fields and cookie
+	array(								
 		'method' => 'POST',
 		'url' => $localhost . 'tmp.php',
 		'postParams' => array(
@@ -34,6 +39,9 @@ $curl->addRequest($requests)
 	->sendRequest();
 
 foreach($urls as $i => $url) {
+	//response info 'curl_getinfo'
 	var_dump( $curl->getResponseInfo($i) );
+	//response 'curl_multi_getcontent'
+	var_dump( $curl->getResponse($i) );
 }
 ```
